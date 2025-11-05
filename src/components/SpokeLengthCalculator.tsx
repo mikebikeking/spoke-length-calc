@@ -51,7 +51,7 @@ const SpokeLengthCalculator = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="wheel-icon relative w-20 h-20">
+            <div className="wheel-icon relative w-20 h-20 aspect-square">
               {/* Outer rim */}
               <div className="absolute inset-0 rounded-full border-4 border-blue-400 shadow-lg shadow-blue-500/50"></div>
               {/* Hub */}

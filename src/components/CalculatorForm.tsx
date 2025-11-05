@@ -164,13 +164,13 @@ const CalculatorForm = ({ specs, setSpecs, onCalculate }: CalculatorFormProps) =
           <label className="block text-sm font-semibold text-slate-700 mb-2">
             Cross Pattern
           </label>
-          <div className="grid grid-cols-5 gap-3">
+          <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
             {CROSS_PATTERNS.map((pattern) => (
               <button
                 key={pattern}
                 type="button"
                 onClick={() => setSpecs({ ...specs, crossPattern: pattern })}
-                className={`py-3 px-4 rounded-lg font-bold text-lg transition-all ${
+                className={`py-3 px-2 md:px-4 rounded-lg font-bold text-sm md:text-lg transition-all ${
                   specs.crossPattern === pattern
                     ? 'calculate-button text-white shadow-lg scale-105'
                     : 'metal-finish text-slate-700 hover:bg-slate-300 border-2 border-aluminum'
