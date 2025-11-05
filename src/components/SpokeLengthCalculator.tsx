@@ -7,12 +7,12 @@ import ResultsDisplay from './ResultsDisplay';
 const SpokeLengthCalculator = () => {
   const [specs, setSpecs] = useState<WheelSpecs>({
     erd: 602,
-    spokeCount: 32,
+    spokeCount: 28,
     leftFlangeD: 58,
     rightFlangeD: 58,
     leftCenterToFlange: 35,
     rightCenterToFlange: 35,
-    crossPattern: '3x',
+    crossPattern: '2x',
     offset: 0,
   });
   
