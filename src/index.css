@@ -35,12 +35,27 @@
     --drive-side-gold: #d97706;
   }
   
+  html {
+    scroll-behavior: auto;
+    overflow-x: hidden;
+    height: 100%;
+  }
+  
   body {
     /* Clean workshop background with subtle depth */
     background: linear-gradient(180deg, #334155 0%, #1e293b 50%, #0f172a 100%);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', Arial, sans-serif;
     position: relative;
     font-weight: 400;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+  }
+  
+  #root {
+    min-height: 100vh;
+    position: relative;
   }
   
   /* Typography hierarchy */
@@ -208,6 +223,15 @@
   }
   
   @keyframes subtle-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes spin {
     from {
       transform: rotate(0deg);
     }

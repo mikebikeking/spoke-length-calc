@@ -1,10 +1,17 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { WheelSpecs } from '../types/spoke';
 import { calculateSpokeLength, validateSpecs } from '../utils/spokeCalculations';
 import CalculatorForm from './CalculatorForm';
 import ResultsDisplay from './ResultsDisplay';
+import SpinningWheel from './SpinningWheel';
 
 const SpokeLengthCalculator = () => {
+  useEffect(() => {
+    // Force scroll to top when component mounts
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, []);
   const [specs, setSpecs] = useState<WheelSpecs>({
     erd: 602,
     spokeCount: 28,
@@ -30,11 +37,11 @@ const SpokeLengthCalculator = () => {
       setErrors([]);
       setIsCalculating(true);
       
-      // Simulate calculation delay for polish
+      // Simulate calculation delay for polish - longer delay for better UX
       setTimeout(() => {
         setIsCalculating(false);
         setShowResults(true);
-      }, 300);
+      }, 2000);
     }
   };
   
@@ -95,8 +102,11 @@ const SpokeLengthCalculator = () => {
           {!showResults ? (
             isCalculating ? (
               <div className="text-center py-12">
-                <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent"></div>
-                <p className="mt-4 text-slate-600 font-semibold">Calculating spoke lengths...</p>
+                <div className="flex flex-col items-center justify-center">
+                  <SpinningWheel size={120} spokeCount={specs.spokeCount} />
+                  <p className="mt-6 text-slate-600 font-semibold text-lg">Calculating spoke lengths...</p>
+                  <p className="mt-2 text-slate-500 text-sm">Precision takes time</p>
+                </div>
               </div>
             ) : (
               <CalculatorForm 
