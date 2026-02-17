@@ -37,4 +37,4 @@ npm run dev
 
 ## Why I Built This
 
-After building thousands of wheels, I wanted a fast, accurate calculator that doesn't require navigating clunky manufacturer websites. This tool combines my mechanical knowledge with modern web development.
+I built this to streamline a key aspect of bicycle construction, proving my focus on creating efficient, data-driven tools that elevate industry standards and enhance user experience.
