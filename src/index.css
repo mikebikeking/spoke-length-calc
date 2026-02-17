@@ -2,69 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ============================================
-   SPOKE LENGTH CALCULATOR - WORKSHOP EDITION
-   By a mechanic who's built wheels for 20 years
-   ============================================ */
-
 @layer base {
-  /* Workshop-inspired color palette */
   :root {
-    /* Primary workshop colors */
-    --workshop-steel: #3a4d5c;
-    --workshop-iron: #2c3840;
-    --workshop-pewter: #596773;
-    --workshop-concrete: #6b7280;
-    
-    /* Metallic accents */
-    --spoke-silver: #c0c7d1;
-    --hub-gold: #d4af37;
-    --brass-aged: #b5a642;
-    --aluminum: #8a95a5;
-    --chrome: #e8eef2;
-    
-    /* Workshop environment */
-    --workbench-wood: #4a3f35;
-    --tool-red: #c53030;
-    --grease-black: #1a1f25;
-    --shop-floor: #2d3640;
-    
-    /* Practical accents */
-    --precision-blue: #2563eb;
-    --caution-orange: #f59e0b;
-    --drive-side-gold: #d97706;
+    --surface-dark: #1a1f25;
+    --accent-blue: #2563eb;
+    --accent-amber: #d97706;
   }
-  
+
   html {
     scroll-behavior: auto;
     overflow-x: hidden;
     height: 100%;
   }
-  
+
   body {
-    /* Clean workshop background with subtle depth */
     background: linear-gradient(180deg, #334155 0%, #1e293b 50%, #0f172a 100%);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', Arial, sans-serif;
-    position: relative;
-    font-weight: 400;
     margin: 0;
     padding: 0;
     height: 100%;
     overflow-x: hidden;
   }
-  
+
   #root {
     min-height: 100vh;
-    position: relative;
   }
-  
-  /* Typography hierarchy */
+
   h1, h2, h3 {
     font-weight: 700;
     letter-spacing: -0.025em;
   }
-  
-  /* Number inputs get monospace for precision */
+
   input[type="number"] {
     font-family: 'Monaco', 'Menlo', 'Consolas', 'Courier New', monospace;
     font-weight: 600;
@@ -72,43 +40,13 @@
 }
 
 @layer components {
-  /* Custom bike-themed colors */
-  .text-spoke-silver {
-    color: var(--spoke-silver);
-  }
-  
-  .bg-spoke-silver {
-    background-color: var(--spoke-silver);
-  }
-  
-  .border-spoke-silver {
-    border-color: var(--spoke-silver);
-  }
-  
-  .text-hub-gold {
-    color: var(--hub-gold);
-  }
-  
-  .bg-hub-gold {
-    background-color: var(--hub-gold);
-  }
-  
-  .border-hub-gold {
-    border-color: var(--hub-gold);
-  }
-  
-  /* Workshop card styling - clean professional */
   .workshop-card {
     background: #ffffff;
     border: 1px solid #cbd5e0;
     border-top: 3px solid #3182ce;
-    box-shadow: 
-      0 10px 40px rgba(0, 0, 0, 0.15),
-      0 4px 12px rgba(0, 0, 0, 0.1);
-    position: relative;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   }
-  
-  /* Measurement inputs - clean precision */
+
   .measurement-input {
     background: #fafafa;
     border: 2px solid #cbd5e0;
@@ -116,226 +54,95 @@
     transition: all 0.2s ease;
     font-weight: 600;
   }
-  
+
   .measurement-input:focus {
     border-color: #3182ce;
     background: #ffffff;
-    box-shadow: 
+    box-shadow:
       inset 0 1px 2px rgba(0, 0, 0, 0.05),
       0 0 0 3px rgba(49, 130, 206, 0.1);
     outline: none;
   }
-  
-  /* Button styling - machined tool aesthetic */
+
   .tool-button {
-    position: relative;
-    background: linear-gradient(180deg, #4a5568 0%, #3a4555 100%);
+    background: #4a5568;
     color: #e2e8f0;
-    border: 1px solid #1a202c;
-    box-shadow: 
-      0 2px 4px rgba(0, 0, 0, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid #2d3748;
     transition: all 0.15s ease;
     font-weight: 500;
-    letter-spacing: 0.02em;
   }
-  
+
   .tool-button:hover {
-    background: linear-gradient(180deg, #5a6c7d 0%, #4a5568 100%);
-    box-shadow: 
-      0 3px 6px rgba(0, 0, 0, 0.25),
-      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    background: #5a6a7d;
   }
-  
+
   .tool-button:active {
-    background: linear-gradient(180deg, #3a4555 0%, #2d3748 100%);
-    box-shadow: 
-      0 1px 2px rgba(0, 0, 0, 0.2),
-      inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    background: #3a4555;
   }
-  
-  /* Calculate button - clean and confident */
+
   .calculate-button {
-    background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+    background: #2563eb;
     border: none;
-    box-shadow: 
-      0 4px 12px rgba(59, 130, 246, 0.3),
-      0 2px 6px rgba(0, 0, 0, 0.15);
-    position: relative;
-    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
     font-weight: 600;
     transition: all 0.2s ease;
   }
-  
+
   .calculate-button:hover {
-    background: linear-gradient(180deg, #4299e1 0%, #3b82f6 100%);
-    box-shadow: 
-      0 6px 16px rgba(59, 130, 246, 0.4),
-      0 3px 8px rgba(0, 0, 0, 0.2);
-    transform: translateY(-1px);
+    background: #3b82f6;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
   }
-  
+
   .calculate-button:active {
-    transform: translateY(0);
-    box-shadow: 
-      0 2px 6px rgba(59, 130, 246, 0.3),
-      0 1px 3px rgba(0, 0, 0, 0.15);
+    background: #1d4ed8;
   }
-  
-  /* Results cards - clean highlights */
+
   .result-card-left {
     background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
     border: 2px solid #93c5fd;
     border-left: 4px solid #3b82f6;
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.12);
-    position: relative;
   }
-  
+
   .result-card-right {
     background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
     border: 2px solid #fcd34d;
     border-left: 4px solid #f59e0b;
-    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.12);
-    position: relative;
-  }
-  
-  /* Section headers - like labeled drawers */
-  .section-header {
-    position: relative;
-    padding-left: 1rem;
-    border-left: 4px solid var(--brass-aged);
-    background: linear-gradient(90deg, rgba(212, 175, 55, 0.1) 0%, transparent 100%);
-  }
-  
-  /* Pro tips box - clean info */
-  .shop-manual {
-    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-    border: 2px solid #f59e0b;
-    border-left: 4px solid #d97706;
-    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.12);
-    position: relative;
-  }
-  
-  /* Wheel icon styling */
-  .wheel-icon {
-    position: relative;
-    animation: subtle-spin 20s linear infinite;
-  }
-  
-  @keyframes subtle-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
-  /* Custom scrollbar - industrial style */
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: var(--aluminum) var(--shop-floor);
-  }
-  
-  *::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-  
-  *::-webkit-scrollbar-track {
-    background: var(--shop-floor);
-  }
-  
-  *::-webkit-scrollbar-thumb {
-    background: var(--aluminum);
-    border-radius: 5px;
-    border: 2px solid var(--shop-floor);
-  }
-  
-  *::-webkit-scrollbar-thumb:hover {
-    background: var(--spoke-silver);
   }
 }
 
-@layer utilities {
-  /* Text shadows for depth */
-  .text-shadow-tool {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
-  .text-shadow-subtle {
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Metal finish effect - subtle but refined */
-  .metal-finish {
-    background: linear-gradient(145deg, #edf2f7 0%, #e2e8f0 50%, #edf2f7 100%);
-    position: relative;
-    box-shadow: 
-      inset 0 1px 0 rgba(255, 255, 255, 0.7),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.05),
-      0 1px 2px rgba(0, 0, 0, 0.05);
-  }
-}
-
-/* ============================================
-   PRINT STYLES - CLEAN SHOP ORDER FORM
-   ============================================ */
+/* Print Styles */
 @media print {
   body {
     background: white !important;
   }
-  
-  body::before {
-    display: none !important;
-  }
-  
+
   .print\:hidden {
     display: none !important;
   }
-  
+
   @page {
     margin: 1.5cm;
     size: letter portrait;
   }
-  
-  /* Remove workshop styling for clean printing */
+
   .workshop-card,
   .result-card-left,
-  .result-card-right,
-  .shop-manual {
+  .result-card-right {
     box-shadow: none !important;
     border: 2px solid #333 !important;
   }
-  
-  /* Ensure content doesn't break */
-  .bg-gradient-to-br,
-  .bg-slate-50,
-  .bg-blue-50,
-  .bg-amber-50,
-  .bg-green-50,
+
   .result-card-left,
   .result-card-right {
     page-break-inside: avoid;
     break-inside: avoid;
   }
-  
-  /* Print header */
+
   h1, h2, h3 {
     page-break-after: avoid;
     break-after: avoid;
   }
-  
-  /* Make measurements bold and clear */
+
   input[type="number"] {
     font-weight: 700;
     border: 1px solid #000 !important;

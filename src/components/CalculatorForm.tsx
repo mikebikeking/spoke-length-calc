@@ -1,4 +1,5 @@
 import type { WheelSpecs, CrossPattern } from '../types/spoke';
+import { Calculator } from 'lucide-react';
 
 interface CalculatorFormProps {
   specs: WheelSpecs;
@@ -151,7 +152,7 @@ const CalculatorForm = ({ specs, setSpecs, onCalculate }: CalculatorFormProps) =
                 className={`py-2 px-3 rounded-lg font-semibold transition-all ${
                   specs.spokeCount === count
                     ? 'calculate-button text-white shadow-lg'
-                    : 'metal-finish text-slate-700 hover:bg-slate-300 border-2 border-aluminum'
+                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-300'
                 }`}
               >
                 {count}
@@ -173,7 +174,7 @@ const CalculatorForm = ({ specs, setSpecs, onCalculate }: CalculatorFormProps) =
                 className={`py-3 px-2 md:px-4 rounded-lg font-bold text-sm md:text-lg transition-all ${
                   specs.crossPattern === pattern
                     ? 'calculate-button text-white shadow-lg scale-105'
-                    : 'metal-finish text-slate-700 hover:bg-slate-300 border-2 border-aluminum'
+                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-300'
                 }`}
               >
                 {pattern === 'radial' ? 'Radial' : pattern.toUpperCase()}
@@ -195,7 +196,8 @@ const CalculatorForm = ({ specs, setSpecs, onCalculate }: CalculatorFormProps) =
         type="submit"
         className="calculate-button w-full text-white py-4 rounded-lg font-bold text-lg transition-all"
       >
-        🔧 Calculate Spoke Lengths
+        <Calculator className="w-5 h-5 inline-block mr-2 -mt-0.5" />
+        Calculate Spoke Lengths
       </button>
     </form>
   );
