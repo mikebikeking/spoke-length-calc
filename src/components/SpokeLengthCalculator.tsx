@@ -54,9 +54,6 @@ const SpokeLengthCalculator = () => {
           <h1 className="text-5xl font-bold text-white mb-3">
             Spoke Length Calculator
           </h1>
-          <p className="text-lg text-slate-300">
-            DT Swiss formula with J-bend spoke compensation
-          </p>
         </div>
 
         {/* Main Content */}
